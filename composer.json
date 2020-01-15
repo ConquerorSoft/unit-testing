@@ -1,0 +1,29 @@
+{
+    "name": "conquerorsoft/unit-testing",
+    "description": "This is an example on how to apply unit testing and TDD to a project",
+    "type": "project",
+    "require": {
+        "php": "~7.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christian Varela",
+            "email": "cvarela@conquerorsoft.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "conquerorsoft\\unit_testing\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "conquerorsoft\\unit_testing\\": "tests"
+        }
+    }
+}
