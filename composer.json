@@ -1,7 +1,7 @@
 {
     "name": "conquerorsoft/unit-testing",
     "description": "This is an example on how to apply unit testing and TDD to a project",
-    "type": "project",
+    "type": "library",
     "require": {
         "php": "~7.2"
     },
@@ -25,5 +25,8 @@
         "psr-4": {
             "conquerorsoft\\unit_testing\\": "tests"
         }
+    },
+    "scripts": {
+        "test": "./vendor/phpunit/phpunit/phpunit --colors"
     }
 }
