@@ -23,11 +23,11 @@ We need a functionality that does the following:
 - For plain strings converted to encoded version:
   - 'some string' becomes 'ßøµ´  ßÎ®ˆ˜©'
   - 'valid string' becomes '¡å¬ˆı  ßÎ®ˆ˜©'
-  - 'Christian Varela' becomes 'Ç˙®ˆßÎˆå˜  ◊å®´¬å'
+  - 'christian varela' becomes 'ç˙®ˆßÎˆå˜  ¡å®´¬å'
 - For encoded strings converted to plain versions:
-  - '∏åßßÏø®ı' becomes 'Password'
-  - 'Áå˜©' becomes 'Yang'
-  - 'Áˆ˜' becomes 'Yin'
+  - 'πåßßÏø®ı' becomes 'password'
+  - '¥å˜©' becomes 'yang'
+  - '¥ˆ˜' becomes 'yin'
 
 ### Assumptions
 
@@ -90,9 +90,9 @@ We need a functionality that does the following:
 
 ### Process description
 
-- A 'Some example' string needs to be encoded
+- A 'some example' string needs to be encoded
   - The encode method is called to encode the string
-  - The 'Íøµ´ ´Óåµπ¬´' string is returned
-- A 'Í¨˜ß˙ˆ˜´∏Ó∏' encoded string needs to be decoded
+  - The 'ßøµ´  ´Óåµπ¬´' string is returned
+- A 'ß¨˜ß˙ˆ˜´π˙π' encoded string needs to be decoded
   - The decode method is called to decode the string
-  - The 'SunshinePHP' string is returned
+  - The 'sunshinephp' string is returned
