@@ -2,16 +2,27 @@
 
 namespace conquerorsoft\unit_testing;
 
-class StringTransformation {
+class StringTransformation
+{
+    const ALPHA_DECODED = "abcdefghijklmnopqrstuvwxyz ";
+    const ENCODED = ['å','Å','ç','ı','´','ƒ','©','˙','ˆ','Ç','˚','¬','µ','˜','ø','π','œ','®','ß','Î','¨','¡','Ï','Ó','¥','Ω','  '];
     
     public function encode(string $string):string
     {
-        $alpha_decoded = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ";
-        $alpha_encoded = ['å','∫','ç','∂','´','ƒ','©','˙','ˆ','∆','˚','¬','µ','˜','ø','π','œ','®','ß','†','¨','√','∑','≈','¥','Ω','Å','ı','Ç','Î','¡','Ï','™','Ó','£','Ô','¢','Ò','Â','∞','Ø','∏','Œ','§','Í','¶','•','◊','º','–','Á','«',' '];
         $string_to_return = "";
         for ($i = 0; $i < strlen($string); $i++) {
-            $pos = strpos($alpha_decoded, $string[$i]);
-            $string_to_return .= $alpha_encoded[$pos];
+            $pos = strpos(self::ALPHA_DECODED, $string[$i]);
+            $string_to_return .= self::ENCODED[$pos];
+        }
+        return $string_to_return;
+    }
+    
+    public function decode(string $string):string
+    {
+        $string_to_return = "";
+        for ($i = 0; $i < strlen($string); $i+=2) {
+            $pos = array_search(substr($string, $i, 2), self::ENCODED);
+            $string_to_return .= self::ALPHA_DECODED[$pos];
         }
         return $string_to_return;
     }

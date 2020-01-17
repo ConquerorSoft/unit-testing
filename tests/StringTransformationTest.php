@@ -7,26 +7,42 @@ use PHPUnit\Framework\TestCase;
 class StringTransformationTest extends TestCase
 {
     /**
-     * @dataProvider decodedStringsProvider
+     * @dataProvider alphaValidStringsProvider
      */
-    public function testAlphaStringIsEncoded(string $input_string, string $expected)
+    public function testAlphaValidStringIsEncoded(string $input_string, string $expected)
     {
         $string = new StringTransformation();
         $new_string = $string->encode($input_string);
         $this->assertEquals($expected, $new_string);
     }
     
-    public function decodedStringsProvider():array
+    public function alphaValidStringsProvider():array
     {
         return [
-            ['some string', 'ßøµ´ ß†®ˆ˜©'],
-            ['valid string', '√å¬ˆ∂ ß†®ˆ˜©'],
-            ['Christian Varela', 'Ç˙®ˆß†ˆå˜ ◊å®´¬å'],
-            ['Yin', 'Áˆ˜'],
-            ['Password', '∏åßß∑ø®∂'],
-            ['Yang', 'Áå˜©'],
-            ['Some example', 'Íøµ´ ´≈åµπ¬´'],
-            ['SunshinePHP', 'Í¨˜ß˙ˆ˜´∏Ó∏'],
+            ['some string', 'ßøµ´  ßÎ®ˆ˜©'],
+            ['valid string', '¡å¬ˆı  ßÎ®ˆ˜©'],
+            ['christian varela', 'ç˙®ˆßÎˆå˜  ¡å®´¬å'],
+            ['yin', '¥ˆ˜'],
+        ];
+    }
+
+    /**
+     * @dataProvider encodedValidStringsProvider
+     */
+    public function testEncodedValidStringIsDecoded(string $input_string, string $expected)
+    {
+        $string = new StringTransformation();
+        $new_string = $string->decode($input_string);
+        $this->assertEquals($expected, $new_string);
+    }
+
+    public function encodedValidStringsProvider():array
+    {
+        return [
+            ['πåßßÏø®ı', 'password'],
+            ['¥å˜©', 'yang'],
+            ['ßøµ´  ´Óåµπ¬´', 'some example'],
+            ['ß¨˜ß˙ˆ˜´π˙π', 'sunshinephp'],
         ];
     }
 }

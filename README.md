@@ -11,19 +11,21 @@ We need a functionality that does the following:
 
 ### Conditions
 
-- Only the following characters are accepted in plain text: [a-zA-Z\s]
+- Only the following characters are accepted in plain text: [a-z\s]
 - Characters should be converted by an equivalent character based on this:
-  - from: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
-  - to:   "å∫ç∂´ƒ©˙ˆ∆˚¬µ˜øπœ®ß†¨√∑≈¥ΩÅıÇÎ¡Ï™Ó£Ô¢ÒÂ∞Ø∏Œ§Í¶•◊º–Á« "
+  - from: "abcdefghijklmnopqrstuvwxyz"
+  - to:   "åÅçı´ƒ©˙ˆÇ˚¬µ˜øπœ®ßÎ¨¡ÏÓ¥Ω"
+  - from: single space
+  - to: double space
 
 ### Examples
 
 - For plain strings converted to encoded version:
-  - 'some string' becomes 'ßøµ´ ß†®ˆ˜©'
-  - 'valid string' becomes '√å¬ˆ∂ ß†®ˆ˜©'
-  - 'Christian Varela' becomes 'Ç˙®ˆß†ˆå˜ ◊å®´¬å'
+  - 'some string' becomes 'ßøµ´  ßÎ®ˆ˜©'
+  - 'valid string' becomes '¡å¬ˆı  ßÎ®ˆ˜©'
+  - 'Christian Varela' becomes 'Ç˙®ˆßÎˆå˜  ◊å®´¬å'
 - For encoded strings converted to plain versions:
-  - '∏åßß∑ø®∂' becomes 'Password'
+  - '∏åßßÏø®ı' becomes 'Password'
   - 'Áå˜©' becomes 'Yang'
   - 'Áˆ˜' becomes 'Yin'
 
@@ -90,7 +92,7 @@ We need a functionality that does the following:
 
 - A 'Some example' string needs to be encoded
   - The encode method is called to encode the string
-  - The 'Íøµ´ ´≈åµπ¬´' string is returned
+  - The 'Íøµ´ ´Óåµπ¬´' string is returned
 - A 'Í¨˜ß˙ˆ˜´∏Ó∏' encoded string needs to be decoded
   - The decode method is called to decode the string
   - The 'SunshinePHP' string is returned
