@@ -4,10 +4,10 @@ namespace conquerorsoft\unit_testing;
 
 class StringTransformation
 {
-    const ALPHA_DECODED = "abcdefghijklmnopqrstuvwxyz ";
-    const ENCODED = ['å','Å','ç','ı','´','ƒ','©','˙','ˆ','Ç','˚','¬','µ','˜','ø','π','œ','®','ß','Î','¨','¡','Ï','Ó','¥','Ω','  '];
+    protected const ALPHA_DECODED = "abcdefghijklmnopqrstuvwxyz ";
+    protected const ENCODED = ['å','Å','ç','ı','´','ƒ','©','˙','ˆ','Ç','˚','¬','µ','˜','ø','π','œ','®','ß','Î','¨','¡','Ï','Ó','¥','Ω','  '];
     
-    public function encode(string $string):string
+    public function encode(string $string): string
     {
         $string_to_return = "";
         for ($i = 0; $i < strlen($string); $i++) {
@@ -17,10 +17,10 @@ class StringTransformation
         return $string_to_return;
     }
     
-    public function decode(string $string):string
+    public function decode(string $string): string
     {
         $string_to_return = "";
-        for ($i = 0; $i < strlen($string); $i+=2) {
+        for ($i = 0; $i < strlen($string); $i += 2) {
             $pos = array_search(substr($string, $i, 2), self::ENCODED);
             $string_to_return .= self::ALPHA_DECODED[$pos];
         }
